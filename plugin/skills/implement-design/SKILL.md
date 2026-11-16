@@ -27,7 +27,7 @@ When something can't be built as drawn, leave a `create_comment` on that board s
 
 ## 3. Open the pull request and link it
 
-1. Commit on a branch and open the pull request the way this repo does (`gh pr create`, say). For a picture of a board in its description, `export` it and use the link it answers.
+1. Commit on a branch and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own, and linking it says so. For a picture of a board in its description, `export` it and use the link it answers.
 2. Right away, `link_pull_request` with the canvas and the pull request's URL (`link_pull_requests` for several). Link every pull request you open for this canvas's work.
 
 The canvas settles once every linked pull request is merged or closed and at least one merged. A pull request in a repository outside the canvas's workspace is refused; the refusal says what to do. Tell the user the link, and which pull requests are linked (`list_pull_requests`).

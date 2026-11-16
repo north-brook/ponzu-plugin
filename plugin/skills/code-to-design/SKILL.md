@@ -7,7 +7,7 @@ description: Rebuild an existing screen or component from the local code on a Po
 
 You drive: the code is here, so you build the boards and Ponzu's agent stays off. Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
 
-1. Get a canvas and take it: `create_canvas` with this checkout's `repository` (from `list_workspaces`), a `name` and `drive: true`; or `take_canvas` on one the user names. Follow the guide it answers with, and `get_guide('basics')` once.
+1. Get a canvas and take it: `create_canvas` with this checkout's `repository` (from `list_workspaces`), a `name` and `drive: true`, and, when the checkout is on a branch of its own rather than the default branch, that branch as `branch` (`git branch --show-current`), so the canvas and the checkout share it; or `take_canvas` on one the user names. Follow the guide it answers with, and `get_guide('basics')` once.
 2. Read the real screen, not just its source. Run the app and read the rendered DOM and computed styles (sizes, colors, fonts, spacing, radii) and the text as shown, at the viewport the board will have. Find the theme (CSS variables, Tailwind config, tokens file).
 3. Mirror the theme with `set_tokens`, under the same names.
 4. Bring over what it loads: `add_asset` with `name` and `data` (the file, base64) or an https `url`, then use the reference it answers. The canvas can't read a path on this machine.

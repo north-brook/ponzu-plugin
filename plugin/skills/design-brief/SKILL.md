@@ -23,6 +23,8 @@ Restate it in a few lines: audience, tone, must-haves, what's out of scope. Ask 
 - Drive: `create_canvas` with `repository`, a short `name` and `drive: true` (or `take_canvas` on one that exists), then follow the guide it answers with.
 - Delegate: `create_canvas` with `repository`, a short `name` and the brief as `message`. That starts Ponzu's agent.
 
+Either way, when you work in a checkout of that repository on a branch of its own (not the default branch), pass that branch as `branch` (`git branch --show-current`): the canvas and the checkout share it, and the pull request you open from it is the canvas's own. To delegate on it, push it first, so Ponzu's agent builds on your commits.
+
 ## 3a. Drive: build the first round yourself
 
 1. `get_guide` for `basics` and `layout`, once.
