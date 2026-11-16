@@ -16,7 +16,7 @@ You hold the canvas while people review it: their comments and messages queue fo
    - **Can't do it**, or you did something different: `reply` saying why. Leave it open.
    - **Question**: `reply` with the answer. Leave it open.
    - **Decision** ("A or B?"): `reply` with a recommendation and why. Leave it open.
-   - **A message** in the thread: act on it the same way; answer in the thread when it asks something.
+   - **A message** in the thread: act on it the same way; when it asks something, or you did something different, answer in the thread with `say`, which writes there as you.
    Group comments on the same board into one pass, and re-read a board (`get_tree`) before touching it again: people move and edit things too.
 
    **Keep yourself free to hear the next comment.** While you make one change, the next comment waits for you. If your client can run subagents in the background, hand changes to them instead of making each one yourself:
