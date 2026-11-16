@@ -18,6 +18,14 @@ You hold the canvas while people review it: their comments and messages queue fo
    - **Decision** ("A or B?"): `reply` with a recommendation and why. Leave it open.
    - **A message** in the thread: act on it the same way; answer in the thread when it asks something.
    Group comments on the same board into one pass, and re-read a board (`get_tree`) before touching it again: people move and edit things too.
+
+   **Keep yourself free to hear the next comment.** While you make one change, the next comment waits for you. If your client can run subagents in the background, hand changes to them instead of making each one yourself:
+   - Answer questions and decisions yourself, at once; they're quick.
+   - Give each board its own subagent with all of that board's changes, and never two subagents, or a subagent and you, on one board at a time. A new comment on a board a subagent holds goes to that subagent, or waits for it.
+   - A subagent sees none of your conversation. Tell it the canvas, the board, each thread's id, what the person has said that bears on it, and the steps for a change above (edit, `screenshot`, fix lint, resolve or reply). It doesn't `set_status`: you say in a few words what's in hand. It runs on your own model, not a smaller one, and reports back what it changed, each thread's outcome, and anything it couldn't do.
+   - A change that also needs code in the person's repository stays with you: two agents in one checkout collide.
+   - Then start the watcher again and end your turn while they work. When one reports, `screenshot` its board before you tell anyone it's done, and fix or redo what falls short.
+   Without background subagents, make the changes yourself as above.
 5. Keep the canvas until the user says they're done working on it through you; then `release_canvas`, and say Ponzu's agent answers comments from then on. A quiet canvas is no reason to let go: comments that come later wait for you, and the watcher tells you of them.
 
 If you can't run a command in the background, loop `wait_for_activity` instead, passing `after` each time and keeping the wait inside what your client lets one tool call take (50 seconds, unless you know it allows more). Don't end your turn in that loop without telling the user you've stopped watching.
