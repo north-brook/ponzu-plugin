@@ -27,8 +27,9 @@ When something can't be built as drawn, leave a `create_comment` on that board s
 
 ## 3. Open the pull request and link it
 
-1. Commit on a branch and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own, and linking it says so. For a picture of a board in its description, `export` it and use the link it answers.
-2. Right away, `link_pull_request` with the canvas and the pull request's URL (`link_pull_requests` for several). Link every pull request you open for this canvas's work.
+1. Commit on a branch, push, and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own, and linking it says so. For a picture of a board in its description, `export` it and use the link it answers.
+2. Show what you built beside what was drawn. Once the pull request's preview is up (its Vercel preview, or staging), put a web board of it beside each board you built from: `create_web_board` with the preview's https `url` at the screen's path, that board's size, and `beside` that board. Your app runs on this machine, where nobody else can reach it, so a web board points at the preview, never localhost. Adding boards takes the canvas in hand (`take_canvas`, then `release_canvas` when done, unless the user wants you to keep it). `screenshot` the drawn board, look at the preview at the same size in your own browser (Ponzu never loads a page from the web in the canvas's sandbox, so `screenshot` of the web board shows only its poster), and fix the code until they match. `get_guide('web')` has more.
+3. Then `link_pull_request` with the canvas and the pull request's URL (`link_pull_requests` for several). Link every pull request you open for this canvas's work.
 
 The canvas settles once every linked pull request is merged or closed and at least one merged. A pull request in a repository outside the canvas's workspace is refused; the refusal says what to do. Tell the user the link, and which pull requests are linked (`list_pull_requests`).
 

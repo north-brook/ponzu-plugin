@@ -17,6 +17,7 @@ You hold the canvas while people review it: their comments and messages queue fo
    - **Question**: `reply` with the answer. Leave it open.
    - **Decision** ("A or B?"): `reply` with a recommendation and why. Leave it open.
    - **A message** in the thread: act on it the same way; when it asks something, or you did something different, answer in the thread with `say`, which writes there as you.
+   - **A comment on a web board** (`get_tree` says "web board of …") is about the code: the page is the app. Fix it in the repository, push, and the board follows once the preview it shows rebuilds. Don't redraw the screen as a board in HTML. Resolve it once the fix is pushed, or `reply` saying when the preview will show it.
    Group comments on the same board into one pass, and re-read a board (`get_tree`) before touching it again: people move and edit things too.
 
    **Keep yourself free to hear the next comment.** While you make one change, the next comment waits for you. If your client can run subagents in the background, hand changes to them instead of making each one yourself:
