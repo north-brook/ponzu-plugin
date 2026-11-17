@@ -18,7 +18,7 @@ Restate it in a few lines: audience, tone, must-haves, what's out of scope. Ask 
 
 ## 2. Make the canvas
 
-`list_workspaces` for the workspace and repository (`owner/repo`); leave the repository out for a scratch canvas.
+`list_workspaces` for the workspace and repository (`owner/repo`). For a scratch canvas, leave the repository out and pass `workspace` (a login `list_workspaces` shows) whenever the user has more than one: the one the work is for, or ask them which. `create_canvas` refuses a scratch canvas without it then, and its answer always names the workspace it used.
 
 - Drive: `create_canvas` with `repository`, a short `name` and `drive: true` (or `take_canvas` on one that exists), then follow the guide it answers with.
 - Delegate: `create_canvas` with `repository`, a short `name` and the brief as `message`. That starts Ponzu's agent.
