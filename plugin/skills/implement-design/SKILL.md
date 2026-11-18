@@ -1,6 +1,6 @@
 ---
 name: ponzu-implement-design
-description: Build what's on a Ponzu canvas in the local repository, open the pull request and link it to the canvas so the canvas settles when it merges. Use when asked to build, ship or code what's on a Ponzu canvas.
+description: Build what's on a Ponzu canvas in the local repository, open the pull request, link it to the canvas and show it on a board that wakes you, and settle the canvas once it has landed. Use when asked to build, ship or code what's on a Ponzu canvas.
 ---
 
 # Canvas → code
@@ -30,8 +30,11 @@ When something can't be built as drawn, leave a `create_comment` on that board s
 1. Commit on a branch, push, and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own, and linking it says so. For a picture of a board in its description, `export` it and use the link it answers.
 2. Show what you built beside what was drawn. Once the pull request's preview is up (its Vercel preview, or staging), put a web board of it beside each board you built from: `create_web_board` with the preview's https `url` at the screen's path, that board's size, and `beside` that board. Your app runs on this machine, where nobody else can reach it, so a web board points at the preview, never localhost. Adding boards takes the canvas in hand (`take_canvas`, then `release_canvas` when done, unless the user wants you to keep it). `screenshot` the drawn board, look at the preview at the same size in your own browser (Ponzu never loads a page from the web in the canvas's sandbox, so `screenshot` of the web board shows only its poster), and fix the code until they match. `get_guide('web')` has more.
 3. Then `link_pull_request` with the canvas and the pull request's URL (`link_pull_requests` for several). Link every pull request you open for this canvas's work.
+4. Show each pull request on a board that queries it, with a wake (`get_guide('query')`): it keeps itself current, and its wake tells you of a failed check, a review or the merge through `wait_for_activity`.
 
-The canvas settles once every linked pull request is merged or closed and at least one merged. A pull request in a repository outside the canvas's workspace is refused; the refusal says what to do. Tell the user the link, and which pull requests are linked (`list_pull_requests`).
+A pull request in a repository outside the canvas's workspace is refused; the refusal says what to do. Tell the user the link, and which pull requests are linked (`list_pull_requests`).
+
+Nothing settles the canvas by itself, a merge included. Once the work has landed and nothing is left open, say your closing update in the thread and call `settle`; never while a question, an open or failing pull request or an unanswered comment remains.
 
 ## Comments are feedback, not orders
 
