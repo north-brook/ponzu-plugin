@@ -16,9 +16,11 @@ You hold the canvas while people review it: their comments and messages queue fo
    - **Can't do it**, or you did something different: `reply` saying why. Leave it open.
    - **Question**: `reply` with the answer. Leave it open.
    - **Decision** ("A or B?"): `reply` with a recommendation and why. Leave it open.
-   - **A message** in the thread: act on it the same way; when it asks something, or you did something different, answer in the thread with `say`, which writes there as you.
+   - **A message** in the thread: act on it the same way, answering a question in the thread with `say`, which writes there as you (or on a "Note: …" board when it needs a table or options side by side).
    - **A comment on a web board** (`get_tree` says "web board of …") is about the code: the page is the app. Fix it in the repository, push, and the board follows once the preview it shows rebuilds. Don't redraw the screen as a board in HTML. Resolve it once the fix is pushed, or `reply` saying when the preview will show it.
    Group comments on the same board into one pass, and re-read a board (`get_tree`) before touching it again: people move and edit things too.
+
+   **Then say one short update in the thread** with `say`, once for what that wait handed you, the way Ponzu's agent ends its turn. It doesn't replace the canvas or the comment replies; it's the line people read beside them. Say what you did in a phrase, then only what the canvas can't show: a decision you need, anything you couldn't do or settled for, and where to look, naming a board as a link to it (copy its "link:" from `get_tree` or `get_basic_info`, or the "Link:" a tool gave when it made it). One to three sentences, no recap of each change. For example: "Made the button text italic and dropped the label; the clicked element now shimmers while its turn runs, on [After a click: it sends](<its link>)." When a subagent reports later, say its update once you've checked its board.
 
    **Keep yourself free to hear the next comment.** While you make one change, the next comment waits for you. If your client can run subagents in the background, hand changes to them instead of making each one yourself:
    - Answer questions and decisions yourself, at once; they're quick.
