@@ -1,11 +1,15 @@
 ---
 name: ponzu-design-brief
-description: Start something new on a Ponzu canvas from a brief, by making it yourself or handing it to Ponzu's agent. Use when asked to design a page, screen, flow or brand from scratch in Ponzu.
+description: Start something new on a Ponzu canvas from a brief, by making it yourself or handing it to Ponzu's agent. Use when asked to design a page, screen, flow or brand from scratch in Ponzu. For a change to a screen or component that already exists in code, use the ponzu-code-to-design skill instead.
 ---
 
 # From brief to first boards
 
 Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
+
+## New, or already in the code?
+
+This skill is for something new. When the brief changes a screen, component or flow that already exists in the code here, even as an exploration, stop and follow the `ponzu-code-to-design` skill: it rebuilds the screen faithfully from the running app first, so the person iterates on the screen they know rather than a drawing of it, and the change goes on a copy beside it. Never draw existing UI from its components' source and a few tokens. A brief that adds something new to an existing app takes the app's own look from there too.
 
 ## Pick a mode
 
@@ -27,7 +31,7 @@ Either way, when you work in a checkout of that repository on a branch of its ow
 
 ## 3a. Drive: build the first round yourself
 
-1. `get_guide` for `basics` and `layout`, once.
+1. `get_guide` for `basics` and `layout`, once (and `code` when the work sits inside an existing app).
 2. `write_note` the brief. Settle a direction before building: palette, two type families, a type scale, spacing and radius, as tokens with `set_tokens`.
 3. Build the key screen first, in small pieces: `create_artboard`, then each section with `write_html` (HTML in the call; split long HTML across calls). `screenshot` every two or three writes and fix lint.
 4. Offer two or three variations side by side (the `ponzu-explore-variations` skill), with a "Note: …" board beside them explaining each.

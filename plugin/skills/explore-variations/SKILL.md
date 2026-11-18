@@ -11,7 +11,7 @@ Drive by default. Delegate only when the user asks for Ponzu's agent, or when th
 
 ## Drive (you do it)
 
-1. `take_canvas`, then `get_guide('variations')` once. Find the board with `get_basic_info` or the comment that named it (`list_comments`).
+1. `take_canvas`, then `get_guide('variations')` once. Find the board with `get_basic_info` or the comment that named it (`list_comments`). When there is no board yet and the screen exists in the code here, rebuild it first with the `ponzu-code-to-design` skill and vary copies of that.
 2. `duplicate` it once per idea and name each copy for its idea: "Hero / B: bigger type".
 3. Change one idea per copy. Don't change everything at once, and never edit the original.
 4. `screenshot` each and fix lint.
