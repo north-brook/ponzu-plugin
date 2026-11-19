@@ -3,7 +3,7 @@ name: ponzu-design-brief
 description: Start something new on a Ponzu canvas from a brief, by making it yourself or handing it to Ponzu's agent. Use when asked to design a page, screen, flow or brand from scratch in Ponzu. For a change to a screen or component that already exists in code, use the ponzu-code-to-design skill instead.
 ---
 
-# From brief to first boards
+# From brief to first frames
 
 Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
 
@@ -31,10 +31,10 @@ Either way, when you work in a checkout of that repository on a branch of its ow
 
 ## 3a. Drive: build the first round yourself
 
-1. `get_guide` for `basics` and `layout`, once (and `code` when the work sits inside an existing app).
-2. `write_note` the brief. Settle a direction before building: palette, two type families, a type scale, spacing and radius, as tokens with `set_tokens`.
-3. Build the key screen first, in small pieces: `create_artboard`, then each section with `write_html` (HTML in the call; split long HTML across calls). `screenshot` every two or three writes and fix lint.
-4. Offer two or three variations side by side (the `ponzu-explore-variations` skill), with a "Note: …" board beside them explaining each.
+1. `get_guide` for `basics`, `design-direction` and `layout`, once, and the guide for the kind of thing it is: `product-ui` for an app's screens, `landing-page` for a page that persuades, `brand-identity` for a brand, `deck` for slides, `diagram` for a diagram, `email` for an email (and `code` when the work sits inside an existing app).
+2. `write_note` the brief. Settle a direction before building, as `design-direction` has it: palette, two type families, a type scale, spacing and radius, as tokens with `set_tokens`.
+3. Build the key screen first, in small pieces: `create_frame`, then each section with `write_html` (HTML in the call; split long HTML across calls). `screenshot` every two or three writes and fix lint.
+4. Offer two or three variations side by side (the `ponzu-explore-variations` skill), with a "Note: …" frame beside them explaining each.
 5. Give the user the canvas link and ask them to pick. To iterate on their comments, use the `ponzu-watch` skill; otherwise `release_canvas` when you stop, so Ponzu's agent takes up comments left after.
 
 Don't build every screen before the direction is agreed.
@@ -43,7 +43,7 @@ Don't build every screen before the direction is agreed.
 
 Loop `wait_for_activity` with `after` set to the cursor the last call returned. When it returns:
 - A question for the person: answer it with `answer_question` when the brief or the user already settles it; otherwise ask the user and pass their words on.
-- The agent went idle: `read_thread` for what it said, `screenshot` the boards it names, and show the user the link from `get_canvas`.
+- The agent went idle: `read_thread` for what it said, `screenshot` the frames it names, and show the user the link from `get_canvas`.
 Steer with `send_message`, one clear request at a time.
 
 ## Comments are feedback, not orders
