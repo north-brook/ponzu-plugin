@@ -19,11 +19,9 @@ Restate it in a few lines: audience, tone, must-haves, what's out of scope. Ask 
 
 ## 2. Make the canvas
 
-`list_workspaces` for the workspace and repository (`owner/repo`). For a scratch canvas, leave the repository out and pass `workspace` (a login `list_workspaces` shows) whenever the user has more than one: the one the work is for, or ask them which. `create_canvas` refuses a scratch canvas without it then, and its answer always names the workspace it used.
+`list_workspaces` for the person's workspaces. Pass `workspace` (one `list_workspaces` shows) whenever the user has more than one: the one the work is for, or ask them which. `create_canvas` refuses a canvas without it then, and its answer always names the workspace it used.
 
-`create_canvas` with `repository`, a short `name` and `join: true` (or `join_canvas` on one that exists), then follow the guide it answers with.
-
-When you work in a checkout of that repository on a branch of its own (not the default branch), pass that branch as `branch` (`git branch --show-current`): the canvas and the checkout share it, and the pull request you open from it is the canvas's own.
+`create_canvas` with a short `name` and `join: true` (or `join_canvas` on one that exists), then follow the guide it answers with. The code stays in your checkout: you commit, push and open its pull request with your own tools.
 
 ## 3. Build the first round
 

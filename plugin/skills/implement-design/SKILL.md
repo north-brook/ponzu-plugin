@@ -9,7 +9,7 @@ The canvas is the spec; this checkout is where it gets built. Every Ponzu tool t
 
 ## 1. Read the spec
 
-1. `get_canvas` for its repository, boards, frames and open questions. The canvas's repository should be this checkout's; if it isn't, say so before building.
+1. `get_canvas` for its boards, frames and open questions. A canvas made from a repository names it; when that isn't this checkout's, say so before building.
 2. `screenshot` the frames you'll build, to see them.
 3. For exact values, read: `read_notes` (the brief and decisions), `get_tokens`, `get_tree` and `get_html` for each frame (sizes, colors, spacing, type, `data-name` for each part), `list_comments` for requirements left in threads, and `get_guide('code')`. These only look, so they work without joining the canvas, whoever else is on it.
 
@@ -27,7 +27,7 @@ When something can't be built as drawn, leave a `create_comment` on that frame s
 
 ## 3. Open the pull request and show it on a frame
 
-1. Commit on a branch, push, and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own. For a picture of a frame in its description, `export` it and use the link it answers.
+1. Commit on a branch, push, and open the pull request the way this repo does (`gh pr create`, say). For a picture of a frame in its description, `export` it and use the link it answers.
 2. Show what you built beside what was drawn. Once the pull request's preview is up (its Vercel preview, or staging), put a web frame of it beside each frame you built from: `create_web_frame` with the preview's https `url` at the screen's path, that frame's size, and `beside` that frame. Your app runs on this machine, where nobody else can reach it, so a web frame points at the preview, never localhost. Adding frames needs you on the canvas (`join_canvas`, then `leave_canvas` when done, unless the user wants you to stay on it). `screenshot` the drawn frame, look at the preview at the same size in your own browser (Ponzu never loads a page from the web in the canvas's sandbox, so `screenshot` of the web frame shows only its poster), and fix the code until they match. `get_guide('web')` has more.
 3. Show every pull request you open for this canvas's work on a frame you keep current with your own `gh` (`get_guide('query')`). The frame is how the canvas follows the pull request:
    - Write an element with `data-query="agent.pr_<number>"`, a `data-refresh` (`5m`), a `data-command` that reads it (`gh pr view <number> --json number,title,url,state,isDraft,mergeable,reviewDecision,statusCheckRollup`), and a `ponzu/render` script, beside the frames you built.
