@@ -1,7 +1,7 @@
 {
   "name": "ponzu",
-  "version": "2.72.0",
-  "description": "Ponzu's canvases for your own agent: join a canvas yourself, or hand it to Ponzu's agent, and steer with comments. Sign in with your Ponzu account.",
+  "version": "2.73.0",
+  "description": "Ponzu's canvases for your own agent: join a canvas, draw on it yourself, and steer with comments. Sign in with your Ponzu account.",
   "author": {
     "name": "Northbrook",
     "url": "https://ponzu.design"
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "Ponzu",
     "shortDescription": "Canvases in the cloud, for your agent",
-    "longDescription": "Ponzu keeps canvases in the cloud, each beside a repository. From your agent, start a canvas and work on it yourself with Ponzu's tools while people comment, or hand it to Ponzu's agent to make. Then build what was settled in your own checkout, show the pull request on a board that keeps itself current, and settle the canvas once its work has landed. Sign in with your Ponzu account when your agent first connects.",
+    "longDescription": "Ponzu keeps canvases in the cloud, each beside a repository. From your agent, start a canvas and work on it yourself with Ponzu's tools while people comment. Then build what was settled in your own checkout, show the pull request on a board that keeps itself current, and settle the canvas once its work has landed. Sign in with your Ponzu account when your agent first connects.",
     "developerName": "Northbrook",
     "category": "Creativity",
     "capabilities": [

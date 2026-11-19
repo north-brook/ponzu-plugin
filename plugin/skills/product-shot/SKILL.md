@@ -7,9 +7,7 @@ description: Make faux product UI on a Ponzu canvas that looks like the real pro
 
 Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
 
-Join the canvas and do it yourself by default. Delegate only when the user asks for Ponzu's agent, or when the work should go on without you.
-
-## Join (you do it)
+You join the canvas and make the shot yourself.
 
 1. `join_canvas`, then `get_guide` for `product`, `kit` and `act`, once: product is the judgment, kit the parts at real geometry, act the scene language.
 2. Plan before any HTML, in a "Note: …" frame beside the work: placement, focal object, action, payoff, what to leave out. Count the real strings (usually 3 to 7).
@@ -21,10 +19,6 @@ Join the canvas and do it yourself by default. Delegate only when the user asks 
 8. Give the user the canvas link (and an `export` link for a still). To iterate on their comments, use the `ponzu-watch` skill; otherwise `leave_canvas`.
 
 For a set (a bento grid, a page of demos), plan the tile list first and keep one figure language: one ground, one gutter, one window shadow.
-
-## Delegate (Ponzu's agent does it)
-
-Ponzu's agent reads the product from the canvas's repository, so hand it a shot only when that holds the product. `send_message` (or `create_canvas` with it as `message`) with: where the shot sits on the page and its size, the focal object, the action, the payoff, what to leave out, and the real strings to show. Then loop `wait_for_activity` (pass `after`), answer its questions, and `screenshot` the result for the user with the canvas link.
 
 ## Comments are feedback, not orders
 

@@ -5,7 +5,7 @@ description: Rebuild an existing screen or component from the local code on a Po
 
 # Code → canvas
 
-You join the canvas: the code is here, so you build the frames yourself rather than handing them to Ponzu's agent. Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
+You join the canvas and build the frames yourself from the code here. Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link.
 
 1. Get a canvas and join it: `create_canvas` with this checkout's `repository` (from `list_workspaces`), a `name` and `join: true`, and, when the checkout is on a branch of its own rather than the default branch, that branch as `branch` (`git branch --show-current`), so the canvas and the checkout share it; or `join_canvas` on one the user names. Follow the guide it answers with, and `get_guide('basics')` and `get_guide('code')` once.
 2. Start from the real thing: a web frame of the screen as it runs (`create_web_frame` with an https `url`: production, or the pull request's preview, at the device's size). It is the "before" people see and use, live. Your app on this machine can't be reached by anyone else, so never point it at localhost. Rebuild as editable frames (below) only what will be redesigned. `get_guide('web')` has more.
