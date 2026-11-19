@@ -1,6 +1,6 @@
 ---
 name: ponzu-implement-design
-description: Build what's on a Ponzu canvas in the local repository, open the pull request, show it on a frame that queries it, and settle the canvas once it has landed. Use when asked to build, ship or code what's on a Ponzu canvas.
+description: Build what's on a Ponzu canvas in the local repository, open the pull request with your own gh, show it on a frame you keep current, and settle the canvas once it has landed. Use when asked to build, ship or code what's on a Ponzu canvas.
 ---
 
 # Canvas → code
@@ -29,9 +29,13 @@ When something can't be built as drawn, leave a `create_comment` on that frame s
 
 1. Commit on a branch, push, and open the pull request the way this repo does (`gh pr create`, say). When the canvas is on your checkout's branch (you named it in `create_canvas`; `get_canvas` shows it), open it from there: it is then the canvas's own. For a picture of a frame in its description, `export` it and use the link it answers.
 2. Show what you built beside what was drawn. Once the pull request's preview is up (its Vercel preview, or staging), put a web frame of it beside each frame you built from: `create_web_frame` with the preview's https `url` at the screen's path, that frame's size, and `beside` that frame. Your app runs on this machine, where nobody else can reach it, so a web frame points at the preview, never localhost. Adding frames needs you on the canvas (`join_canvas`, then `leave_canvas` when done, unless the user wants you to stay on it). `screenshot` the drawn frame, look at the preview at the same size in your own browser (Ponzu never loads a page from the web in the canvas's sandbox, so `screenshot` of the web frame shows only its poster), and fix the code until they match. `get_guide('web')` has more.
-3. Show every pull request you open for this canvas's work on a frame that queries it (`get_guide('query')`): `data-query="github.pull_request"` with its number (and `repository` when it isn't the canvas's), and buttons with `data-prompt` for what a person can ask of it ("Merge #61"). The frame is how the canvas follows the pull request: it keeps itself current, Ponzu tells you of its failed CI runs (with what failed, and the end of each job's log) and of reviews from people who can push, and a `ponzu/wake` script on it tells you of the merge. All of these reach you as anything else does on a canvas you've joined: your watch link wakes you, and `wait_for_activity` reads them.
+3. Show every pull request you open for this canvas's work on a frame you keep current with your own `gh` (`get_guide('query')`). The frame is how the canvas follows the pull request:
+   - Write an element with `data-query="agent.pr_<number>"`, a `data-refresh` (`5m`), a `data-command` that reads it (`gh pr view <number> --json number,title,url,state,isDraft,mergeable,reviewDecision,statusCheckRollup`), and a `ponzu/render` script, beside the frames you built.
+   - Send its data at once, and again whenever you learn something new (you pushed, a check finished, a review came) and at least once per refresh: run the command yourself and pass what it prints, parsed, to `post_live_data` with the element's id. Data a whole refresh overdue stays on the frame, and its label says how old it is.
+   - Give it a `ponzu/wake` script for what needs you: a failing check, a review asking for changes, the merge. Its sentence reaches you alone, as anything else does on a canvas you've joined: your watch link wakes you, and `wait_for_activity` reads it.
+   - Merge is a press: put a button beside it with `data-prompt="Merge pull request #<number> once its checks pass"`. When your person presses it, it reaches you as their message; check it's still right (checks green, nothing open), merge with your own `gh`, and send the frame's data again so it shows the merge. Approve, rerun and close work the same way.
 
-A frame can show a pull request only in a repository of the canvas's workspace; its query says so when it can't. Tell the user the pull request's link.
+Tell the user the pull request's link.
 
 Nothing settles the canvas by itself, a merge included. Once the work has landed and nothing is left open, say your closing update in the thread and call `settle`; never while a question, an open or failing pull request or an unanswered comment remains.
 
