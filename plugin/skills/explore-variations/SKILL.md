@@ -7,16 +7,16 @@ description: Make and compare variations on a Ponzu canvas. Use when asked for o
 
 Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or its link. Find it with `list_canvases`, then `get_canvas` for its boards and frames.
 
-Drive by default. Delegate only when the user asks for Ponzu's agent, or when the work should go on without you.
+Join the canvas and do it yourself by default. Delegate only when the user asks for Ponzu's agent, or when the work should go on without you.
 
-## Drive (you do it)
+## Join (you do it)
 
-1. `take_canvas`, then `get_guide('variations')` once. Find the frame with `get_basic_info` or the comment that named it (`list_comments`). When there is no frame yet and the screen exists in the code here, rebuild it first with the `ponzu-code-to-design` skill and vary copies of that.
+1. `join_canvas`, then `get_guide('variations')` once. Find the frame with `get_basic_info` or the comment that named it (`list_comments`). When there is no frame yet and the screen exists in the code here, rebuild it first with the `ponzu-code-to-design` skill and vary copies of that.
 2. `duplicate` it once per idea and name each copy for its idea: "Hero / B: bigger type".
 3. Change one idea per copy. Don't change everything at once, and never edit the original.
 4. `screenshot` each and fix lint.
 5. Beside the set, `create_frame` a "Note: Hero options" (height `fit-content`) with one line per take and what to compare.
-6. Ask the user to pick, with the canvas link. To keep iterating on their comments, use the `ponzu-watch` skill. When they pick, `archive` the rest. `release_canvas` when you're done.
+6. Ask the user to pick, with the canvas link. To keep iterating on their comments, use the `ponzu-watch` skill. When they pick, `archive` the rest. `leave_canvas` when you're done.
 
 ## Delegate (Ponzu's agent does it)
 

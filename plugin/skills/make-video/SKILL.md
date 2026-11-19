@@ -11,7 +11,7 @@ A film is made on the canvas and rendered here, on this machine, with HyperFrame
 
 ## 1. Storyboard
 
-1. `take_canvas`, then `get_guide` for `basics`, `video` and `motion`, once.
+1. `join_canvas`, then `get_guide` for `basics`, `video` and `motion`, once.
 2. `create_board` named Storyboard. Its first frame is a "Note: …" frame: the length in seconds, the aspect (16:9 is 1920×1080, 9:16 is 1080×1920, 1:1 is 1080×1080), where it plays, who watches, and the one thing they should leave with.
 3. Rough frames with `create_frame`, one per beat, in a row in story order, 480×270 for 16:9. Each says its seconds (0:04–0:09), the words on screen or spoken, what is seen, and the move into the next beat (a cut, a push in, a wipe). Grey boxes and words: the story is what's being judged.
 4. The beats' seconds add up to the length. Ask the user to approve the story before anything else starts.
@@ -41,7 +41,7 @@ A film is made on the canvas and rendered here, on this machine, with HyperFrame
 2. For a poster, `export` the strongest frame on the Frames board and `add_asset` its link as the `url`.
 3. `update_media_frame` with the frame's id, `src` the reference add_asset gave, the film's real duration (ffprobe), the poster, and progress 1.
 4. `screenshot` the frame and give the user the canvas link. Each new render replaces the film's frame: `archive` the old one first.
-5. To iterate on their comments, use the `ponzu-watch` skill; otherwise `release_canvas`.
+5. To iterate on their comments, use the `ponzu-watch` skill; otherwise `leave_canvas`.
 
 A comment on a media frame may carry the moment in the film it's about: `list_comments` shows it, like at 1:12 (72.4 s). Change the beat's frame first, then the project, and render again once a round of comments is in.
 
