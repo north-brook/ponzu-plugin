@@ -9,8 +9,8 @@ Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or it
 
 You join the canvas and make the shot yourself.
 
-1. `join_canvas`, then `get_guide` for `product`, `kit` and `act`, once: product is the judgment, kit the parts at real geometry, act the scene language.
-2. Plan before any HTML, in a "Note: …" frame beside the work: placement, focal object, action, payoff, what to leave out. Count the real strings (usually 3 to 7).
+1. `join_canvas` and paint first, as the guide it answers with says, then `get_guide` for `product`, `kit` and `act`, once: product is the judgment, kit the parts at real geometry, act the scene language.
+2. Plan before any HTML of the shot, growing that first frame into a "Note: …" beside the work: placement, focal object, action, payoff, what to leave out. Count the real strings (usually 3 to 7).
 3. Take the product's tokens, icons, chrome and words from the code here (the `ponzu-code-to-design` skill): `set_tokens`, and `add_asset` with `data` (base64) or an https `url`. Otherwise light, one accent, and the brief's style in full.
 4. `create_frame` at the size it's shown, 1:1 (about 720×340 beside copy, 960–1100 wide full-width, 400×300 for a card). Put the picture in a clipping stage, pick a layout, and build the screen from the kit's window, phone, rows and bars with `write_html`.
 5. `screenshot` at scale 1 and frame it before any motion: the hero runs off an edge, one gutter, words only where the eye lands, no dead corners.

@@ -9,7 +9,7 @@ Every Ponzu tool that works on a canvas takes `canvas`: its id (`cnv_…`) or it
 
 You join the canvas and make the takes yourself.
 
-1. `join_canvas`, then `get_guide('variations')` once. Find the frame with `get_basic_info` or the comment that named it (`list_comments`). When there is no frame yet and the screen exists in the code here, rebuild it first with the `ponzu-code-to-design` skill and vary copies of that.
+1. `join_canvas` (follow the guide it answers with), then `get_guide('variations')` once. Find the frame with `get_basic_info` or the comment that named it (`list_comments`). When there is no frame yet and the screen exists in the code here, rebuild it first with the `ponzu-code-to-design` skill and vary copies of that.
 2. `duplicate` it once per idea (three is usually enough: layout, type, color or density) and name each copy for its idea: "Hero / B: bigger type".
 3. Change one idea per copy. Don't change everything at once, and never edit the original.
 4. `screenshot` each and fix lint.

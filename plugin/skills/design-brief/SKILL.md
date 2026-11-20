@@ -21,7 +21,7 @@ Restate it in a few lines: audience, tone, must-haves, what's out of scope. Ask 
 
 `list_workspaces` for the person's workspaces. Pass `workspace` (one `list_workspaces` shows) whenever the user has more than one: the one the work is for, or ask them which. `create_canvas` refuses a canvas without it then, and its answer always names the workspace it used.
 
-`create_canvas` with a short `name` and `join: true` (or `join_canvas` on one that exists), then follow the guide it answers with. The code stays in your checkout: you commit, push and open its pull request with your own tools.
+`create_canvas` with a short `name` and `join: true` (or `join_canvas` on one that exists), then follow the guide it answers with: paint first, a frame with the brief you restated and what you'll do next, before reading any guide. The code stays in your checkout: you commit, push and open its pull request with your own tools.
 
 ## 3. Build the first round
 
