@@ -37,7 +37,7 @@ A film is made on the canvas and rendered here, on this machine, with HyperFrame
 
 ## 4. Film
 
-1. `add_asset` the MP4, as <film>.mp4. A film is up to 200 MB. `data` (base64) carries only about 8 MB in one call, so a larger film needs an https `url` the user can give you, or a smaller encode: `ffmpeg -i renders/<film>.mp4 -vf scale=-2:720 -crf 28 renders/<film>-720.mp4`.
+1. `add_asset` the MP4, as <film>.mp4, with its `size` (`wc -c`) and `sha256` (`shasum -a 256`): run the `curl` command it answers, then `add_asset` with the `upload` it named. A film is up to 200 MB; a larger one needs a smaller encode: `ffmpeg -i renders/<film>.mp4 -vf scale=-2:720 -crf 28 renders/<film>-720.mp4`.
 2. For a poster, `export` the strongest frame on the Frames board and `add_asset` its link as the `url`.
 3. `update_media_frame` with the frame's id, `src` the reference add_asset gave, the film's real duration (ffprobe), the poster, and progress 1.
 4. `screenshot` the frame and give the user the canvas link. Each new render replaces the film's frame: `archive` the old one first.
