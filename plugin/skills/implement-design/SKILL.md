@@ -38,7 +38,7 @@ When something can't be built as drawn, leave a `create_comment` on that frame s
 
 Tell the user the pull request's link.
 
-Nothing settles the canvas by itself, a merge included. Once the work has landed and nothing is left open, say one closing sentence in the thread and call `settle`; never while a question, an open or failing pull request or an unanswered comment remains.
+Nothing settles the canvas by itself, a merge included. Once the work has landed and nothing is left open, say a closing sentence in the thread and call `settle`; never while a question, an open or failing pull request or an unanswered comment remains.
 
 ## Comments are feedback, not orders
 
